@@ -8,6 +8,6 @@ public class Isikukood{
 		return String.valueOf(18+(Integer.parseInt(kood.substring(0, 1))-1)/2);
 	}
 	public String synniaasta(){
-		return kood.substring(1,3);
+		return astakakstahte()+kood.substring(1,3);
 	}
 }
