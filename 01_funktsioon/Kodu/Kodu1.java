@@ -1,13 +1,20 @@
+import java.util.Scanner;
+
 public class Kodu1{
-	public static sugu(String[] arg){
-		int alco=Integer.parseInt(arg[0]);
-		int kehamass=Integer.parseInt(arg[1]);
-		System.out.println(arv1*arv2);
-		for(int i=0; i<arv2; i++){
-			System.out.println("Tere.");
-		}
+	public static char kook(){
+		Scanner sisestus = new Scanner(System.in);
+		System.out.println("Kas tahad kooki? Y/N");
+		char test = sisestus.next().charAt(0);
+		return test;
 	}
-	public static void alco((String[] arg)){
-		
+	
+	public static void main(String[] args){ 
+		char vastus = kook();
+		if (vastus == 'Y'){
+			System.out.println("Palun. S66 kooki.");
+		}
+		else{
+			System.out.println("Arusaadav, sa ei saa kooki.");
+		}
 	}
 }
