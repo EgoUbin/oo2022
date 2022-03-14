@@ -22,5 +22,4 @@ public class Kodu{
 		kivi1.kiirus();
 		kivi1.maht();
 	}
-	
 }
