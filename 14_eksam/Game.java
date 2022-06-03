@@ -1,20 +1,20 @@
 import java.util.*;
 import java.util.Random;
 
-public class Game {
+ class Game {
 	
 	static class Being{
 		int health;
 		int dice_count;
 		
-		public Being(int t_health, int t_dice_count){ // Constructor
+		 Being(int t_health, int t_dice_count){ // Constructor
 		this.health = t_health;
 		this.dice_count = t_dice_count;
 		}
-		public void takeDamage(int damage){ // The function for removing health from an entity
+		 void takeDamage(int damage){ // The function for removing health from an entity
 			health = health - damage;
 		}
-		public int en_attack(int amount){ // The attack function but for NPCs. Doesn't use a weapon stat.
+		 int en_attack(int amount){ // The attack function but for NPCs. Doesn't use a weapon stat.
 			int total_damage = 0;
 			for(int i=0; i < amount; i++){
 				int temp_damage = roll();
@@ -23,7 +23,7 @@ public class Game {
 			System.out.println("You got hit for " + total_damage);
 			return total_damage;
 		}
-		public int roll(){ // The roll function used for damage
+		 int roll(){ // The roll function used for damage
 			Random rand = new Random();
 			int d6 = 6; // dice parameter
 			int randomint = rand.nextInt(d6) + 1; // Adds 1 to make it more useable
@@ -34,11 +34,11 @@ public class Game {
 	
 	static class Player extends Being{
 		
-		public Player(int t_health, int t_dice_count){super(t_health, t_dice_count);} // Subclass constructor
+		 Player(int t_health, int t_dice_count){super(t_health, t_dice_count);} // Subclass constructor
 		int weapon = 0; // Weapon damage. Added passively to damage rolls
 		int dice_temporary; // An often modified value for the remaining dice in a fight.
 		
-		public int attack(int amount){ // The attack function, with a check for bad rolls built in. Uses the roll function and checks for misses.
+		 int attack(int amount){ // The attack function, with a check for bad rolls built in. Uses the roll function and checks for misses.
 			int total_damage = 0;
 			for(int i=0; i < amount; i++){
 				int temp_damage = roll();
@@ -51,7 +51,7 @@ public class Game {
 			return total_damage; 
 		}
 		
-		public int fight(){
+		 int fight(){
 			Scanner sc= new Scanner(System.in); //Scanner prep for later use.
 			System.out.println("Current dice: " + dice_temporary);
 			System.out.println("How many dice would you like to use? ");
