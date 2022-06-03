@@ -1,11 +1,17 @@
 import java.util.*;
 import java.util.Random;
+import java.io.FileWriter;
+import java.io.IOException;
 
  class Game {
 	
 	static class Being{
 		int health;
 		int dice_count;
+		int dice_highest = 0;
+		int dice_lowest = 0;
+		int drop = 0;
+		int drop_rec = 0;
 		
 		 Being(int t_health, int t_dice_count){ // Constructor
 		this.health = t_health;
@@ -58,7 +64,33 @@ import java.util.Random;
 			int attack_size = sc.nextInt();
 			if(attack_size > dice_temporary){System.out.println("You do not have enough dice"); return 0;}
 			else if (attack_size <= 0){System.out.println("You need to use at least one dice."); return 0;}
-			else {int fight_damage = attack(attack_size); dice_temporary = dice_temporary - attack_size; return fight_damage;} // Puts the current dice value to the correct valu and outputs damage.
+			else {
+				int fight_damage = attack(attack_size); 
+				dice_temporary = dice_temporary - attack_size;
+				if(dice_count > dice_highest){
+					dice_highest = dice_count;
+					dice_lowest = dice_highest;
+				}	
+				if(dice_lowest > dice_temporary){
+					dice_lowest = dice_temporary;
+					drop = dice_highest - dice_lowest;
+					if (drop_rec < drop){
+						drop_rec = drop;
+						try {
+						FileWriter writer = new FileWriter("log.txt", true);
+						writer.write("New Drop record!");
+						writer.write("\r\n");   // write new line
+						writer.write(String.valueOf(drop));
+						writer.write("\r\n");
+						writer.close();
+						}
+					catch (IOException e) {
+						e.printStackTrace();
+						}
+					}
+				}
+				return fight_damage;
+				} // Puts the current dice value to the correct valu and outputs damage.
 		}
 	}
 	
