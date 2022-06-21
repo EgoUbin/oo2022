@@ -32,20 +32,27 @@ public class Kolmnurk{
 	
 	double circumference(){
 		double circum = 0;
+		double circ;
 		for(int i = 0; i< (coorX.length - 1); i++){
 			double circum_t = sqrt(pow(coorX[i] - coorX[i+1], 2) + pow(coorY[i] - coorY[i+1], 2) );
 			circum = circum + circum_t;
+			
+			if(i == coorX.length - 2 ){
+				circum_t = sqrt(pow(coorX[i+1] - coorX[0], 2) + pow(coorY[i+1] - coorY[0], 2) );
+				circum = circum + circum_t;
+				}
 			}
 		System.out.println("Circumference: " + circum);
 		return circum;
 	}
 	
 	public static void main( String args[] ){
-		Kolmnurk esimene = new Kolmnurk(1,1,1,2,2,1);
+		Kolmnurk esimene = new Kolmnurk(0,0,0,3,4,0);
 		Kolmnurk teine = new Kolmnurk(0,0,4,1,0,4);
 		esimene.points();
+		double lahe = esimene.circumference();
 		esimene.addPoint(4,4);
 		esimene.points();
-		double lahe = esimene.circumference();
+		lahe = esimene.circumference();
 	}
 }
