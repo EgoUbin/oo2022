@@ -1,0 +1,19 @@
+//Java massiivide loomine ja kasutamine
+
+	Algne deklareerimine: Andmetüüp[]nimi = {sisu}
+	Suurus on kohe alguses määratud.
+	Suuruse muutmiseks on vaja importida java.utils.Arrays ja teha massiivi nimele koopia ise-endast, aga ühe võrra suuremalt. (kasutades massiiv.length)
+	Massiivi elemente saab kutsuda ja muuta: nimi[elemendi_number]
+	Elemendid algavad kohal 0.
+
+//Alamklassid, pärilus, abstraktsed klassid
+
+	Superklass on klass, millel on alamklass. Kasutatakse, et arendada funktsionaalsust ja deklareerida muutujaid mitmele erinevale klassile, ilma korduva koodita.
+	Klass saab võtta kasutusele superklassi kasutades "extends" funktsionaalsusts. Klass, mis extendib superklassi, on alamklass.
+	
+	Java lubab alamklassil pärida ainult ühelt superklassilt, aga on võimalik teha keti päritlust.
+	
+	Abstraktne klass on klass, millest ei saa objekti teha. On võimalik kasutada ainult alamklassi abil. 
+	Abstraktseid meetodeid saab kasutada ainult abstraktses klassis.
+	Abstraktsiooni saab kah saavutada liidesega, aga seda kasutades peab kõik meetodid üle-kirjutama.
+	Abstraktsiooni kasutatakse, et ühe projekti osasi eraldada üksteisest. Nii ei saa kõik projekti osad kasutada ja muuta teisi projekti osasi.
