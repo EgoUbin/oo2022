@@ -11,7 +11,7 @@ public class AWTCalculator extends Frame {
     public AWTCalculator() {
         Font f = new Font("SansSerif", Font.BOLD, 40);
 
-        TextField Field = new TextField("2");
+        TextField Field = new TextField("1");
         Field.setFont(f);
 
         Button calcButton = new Button("Suurenda");
